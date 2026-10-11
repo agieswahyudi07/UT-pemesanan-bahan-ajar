@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SITTA UT - Dashboard Utama</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="dashboard.html" class="brand-container">
+      <div class="brand-logo">UT</div>
+      <div class="brand-title">
+        <h1>SITTA UT</h1>
+        <span>Sistem Pemesanan Bahan Ajar</span>
+      </div>
+    </a>
+
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="dashboard.html" class="nav-link active">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a href="stok.html" class="nav-link">Informasi Bahan Ajar</a>
+      </li>
+      <li class="nav-item">
+        <a href="tracking.html" class="nav-link">Tracking Pengiriman</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link">Laporan &#9662;</a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item" onclick="alert('Laporan Monitoring Progress DO dalam persiapan.')">Monitoring Progress DO Bahan Ajar</a>
+          <a href="#" class="dropdown-item" onclick="alert('Laporan Rekap Bahan Ajar dalam persiapan.')">Rekap Bahan Ajar</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link" onclick="alert('Halaman Histori Transaksi Bahan Ajar.')">Histori Transaksi</a>
+      </li>
+    </ul>
+
+    <div class="user-badge">
+      <div class="user-avatar" id="navAvatar">U</div>
+      <span class="user-name" id="navUserName">Mahasiswa</span>
+      <button class="btn-logout" id="btnLogout">Keluar</button>
+    </div>
+  </nav>
+
+  <!-- Main Content Container -->
+  <main class="main-container">
+
+    <!-- Hero Banner with Dynamic Greeting -->
+    <div class="hero-banner">
+      <h2 class="hero-greeting" id="greetingText">Selamat Datang di SITTA UT</h2>
+      <p class="hero-subtitle">Kelola dan pantau pesanan serta stok bahan ajar Universitas Terbuka secara terintegrasi.</p>
+    </div>
+
+    <!-- Quick Stats Cards -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+      <div class="card" style="margin-bottom:0;">
+        <span style="font-size: 0.8rem; color: var(--text-secondary); font-weight:700;">TOTAL STOK BAHAN AJAR</span>
+        <h3 style="font-size: 2rem; color: var(--primary-color); margin: 0.4rem 0;" id="statTotalStok">0</h3>
+        <p style="font-size: 0.85rem; color: var(--success-color);">Ready stok tersedia</p>
+      </div>
+
+      <div class="card" style="margin-bottom:0;">
+        <span style="font-size: 0.8rem; color: var(--text-secondary); font-weight:700;">PENGIRIMAN AKTIF</span>
+        <h3 style="font-size: 2rem; color: var(--secondary-hover); margin: 0.4rem 0;" id="statTrackingAktif">2</h3>
+        <p style="font-size: 0.85rem; color: var(--text-secondary);">Nomor Delivery Order diproses</p>
+      </div>
+
+      <div class="card" style="margin-bottom:0;">
+        <span style="font-size: 0.8rem; color: var(--text-secondary); font-weight:700;">PENGGUNA TERDAFTAR</span>
+        <h3 style="font-size: 2rem; color: var(--primary-light); margin: 0.4rem 0;" id="statPengguna">0</h3>
+        <p style="font-size: 0.85rem; color: var(--text-secondary);">Akun petugas & mahasiswa</p>
+      </div>
+    </div>
+
+    <!-- Quick Access Menu Grid -->
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Navigasi Utama SITTA</h3>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+        
+        <a href="stok.html" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8fafc; border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 1.5rem; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.transform='none'; this.style.boxShadow='none'">
+            <div style="width: 44px; height: 44px; background: #e0f2fe; color: #0284c7; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.2rem; margin-bottom: 0.8rem;">📦</div>
+            <h4 style="font-weight: 700; color: var(--primary-color);">Informasi Stok</h4>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.3rem;">Cek & kelola data ketersediaan bahan ajar.</p>
+          </div>
+        </a>
+
+        <a href="tracking.html" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8fafc; border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 1.5rem; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.transform='none'; this.style.boxShadow='none'">
+            <div style="width: 44px; height: 44px; background: #fef3c7; color: #d97706; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.2rem; margin-bottom: 0.8rem;">🚚</div>
+            <h4 style="font-weight: 700; color: var(--primary-color);">Tracking Pengiriman</h4>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.3rem;">Lacak progres status Delivery Order (DO).</p>
+          </div>
+        </a>
+
+        <a href="javascript:void(0)" onclick="alert('Fitur Laporan Progress DO siap digunakan.')" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8fafc; border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 1.5rem; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.transform='none'; this.style.boxShadow='none'">
+            <div style="width: 44px; height: 44px; background: #d1fae5; color: #059669; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.2rem; margin-bottom: 0.8rem;">📊</div>
+            <h4 style="font-weight: 700; color: var(--primary-color);">Monitoring Laporan</h4>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.3rem;">Lihat rekapitulasi dan distribusi bahan ajar.</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Universitas Terbuka - SITTA (Sistem Informasi Tiras dan Transaksi Bahan Ajar)</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SITTA UT - Login Pemesanan Bahan Ajar</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-body">
+
+  <div class="login-wrapper">
+    <div class="login-card">
+      <div class="login-logo-circle">UT</div>
+      <h2>SITTA UT</h2>
+      <p>Sistem Informasi Tiras & Transaksi Bahan Ajar</p>
+
+      <!-- Form Login -->
+      <form id="loginForm">
+        <div class="form-group">
+          <label class="form-label" for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" class="form-control" placeholder="Contoh: rina@ut.ac.id" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" class="form-control" placeholder="Masukkan password" required>
+        </div>
+
+        <button type="submit" class="btn btn-accent btn-block">Masuk</button>
+      </form>
+
+      <!-- Modal triggers -->
+      <div class="login-links">
+        <a href="#" id="btnOpenLupa">Lupa password?</a>
+        <a href="#" id="btnOpenDaftar">Belum punya akun?</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Lupa Password -->
+  <div class="modal" id="modalLupa">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Reset Password</h3>
+        <button class="close-btn" id="btnCloseLupa">&times;</button>
+      </div>
+      <form id="formLupa">
+        <div class="form-group">
+          <label class="form-label" for="lupaEmail">Email Terdaftar</label>
+          <input type="email" id="lupaEmail" class="form-control" placeholder="Masukkan email anda" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Kirim Link Reset</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Registrasi -->
+  <div class="modal" id="modalDaftar">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Daftar Akun Baru</h3>
+        <button class="close-btn" id="btnCloseDaftar">&times;</button>
+      </div>
+      <form id="formDaftar">
+        <div class="form-group">
+          <label class="form-label" for="regNama">Nama Lengkap</label>
+          <input type="text" id="regNama" class="form-control" placeholder="Nama Mahasiswa/Petugas" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="regEmail">Email</label>
+          <input type="email" id="regEmail" class="form-control" placeholder="email@ut.ac.id" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="regPassword">Password</label>
+          <input type="password" id="regPassword" class="form-control" placeholder="Password akun" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="regLokasi">Lokasi / UPBJJ</label>
+          <input type="text" id="regLokasi" class="form-control" placeholder="Contoh: UPBJJ Bandung" required>
+        </div>
+        <button type="submit" class="btn btn-accent btn-block">Daftar Akun</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Load Data Dummy dan Logic JS -->
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

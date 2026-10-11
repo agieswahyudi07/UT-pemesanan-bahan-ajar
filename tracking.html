@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SITTA UT - Tracking Pengiriman DO</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="dashboard.html" class="brand-container">
+      <div class="brand-logo">UT</div>
+      <div class="brand-title">
+        <h1>SITTA UT</h1>
+        <span>Sistem Pemesanan Bahan Ajar</span>
+      </div>
+    </a>
+
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a href="stok.html" class="nav-link">Informasi Bahan Ajar</a>
+      </li>
+      <li class="nav-item">
+        <a href="tracking.html" class="nav-link active">Tracking Pengiriman</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link">Laporan &#9662;</a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item" onclick="alert('Laporan Monitoring Progress DO Bahan Ajar.')">Monitoring Progress DO Bahan Ajar</a>
+          <a href="#" class="dropdown-item" onclick="alert('Laporan Rekap Bahan Ajar.')">Rekap Bahan Ajar</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link" onclick="alert('Histori Transaksi Bahan Ajar.')">Histori Transaksi</a>
+      </li>
+    </ul>
+
+    <div class="user-badge">
+      <div class="user-avatar" id="navAvatar">U</div>
+      <span class="user-name" id="navUserName">Mahasiswa</span>
+      <button class="btn-logout" id="btnLogout">Keluar</button>
+    </div>
+  </nav>
+
+  <!-- Main Content Container -->
+  <main class="main-container">
+
+    <!-- Card Input Search Tracking -->
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Lacak Pengiriman Bahan Ajar</h3>
+      </div>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.2rem;">
+        Masukkan Nomor Delivery Order (DO) untuk melihat status perjalanan bahan ajar anda. (Contoh DO: <strong>2023001234</strong> atau <strong>2023005678</strong>)
+      </p>
+
+      <form id="formTracking" style="display: flex; gap: 10px; max-width: 540px;">
+        <input type="text" id="inputNoDO" class="form-control" placeholder="Masukkan Nomor DO (misal: 2023001234)" required>
+        <button type="submit" class="btn btn-accent" style="white-space: nowrap;">Cari DO</button>
+      </form>
+    </div>
+
+    <!-- Container Hasil Tracking -->
+    <div class="card" id="trackingResultCard" style="display: none;">
+      <div class="card-header">
+        <h3 class="card-title" id="resultHeaderTitle">Detail Delivery Order</h3>
+        <span class="badge badge-warning" id="badgeStatus">Status DO</span>
+      </div>
+
+      <!-- Detail Ringkasan Header -->
+      <div class="tracking-header">
+        <div class="tracking-info-item">
+          <label>Nomor DO</label>
+          <p id="resNoDO">-</p>
+        </div>
+        <div class="tracking-info-item">
+          <label>Nama Mahasiswa</label>
+          <p id="resNama">-</p>
+        </div>
+        <div class="tracking-info-item">
+          <label>Ekspedisi</label>
+          <p id="resEkspedisi">-</p>
+        </div>
+        <div class="tracking-info-item">
+          <label>Tanggal Kirim</label>
+          <p id="resTglKirim">-</p>
+        </div>
+        <div class="tracking-info-item">
+          <label>Paket Bahan Ajar</label>
+          <p id="resPaket">-</p>
+        </div>
+        <div class="tracking-info-item">
+          <label>Total Pembayaran</label>
+          <p id="resTotal">-</p>
+        </div>
+      </div>
+
+      <!-- Visual Progress Bar -->
+      <div style="margin: 1.5rem 0;">
+        <label style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">Progress Pengiriman:</label>
+        <div style="background: #e2e8f0; height: 12px; border-radius: 10px; overflow: hidden; margin-top: 6px;">
+          <div id="progressBar" style="background: linear-gradient(90deg, var(--secondary-color), var(--success-color)); height: 100%; width: 50%; transition: width 0.5s ease;"></div>
+        </div>
+      </div>
+
+      <!-- History Timeline -->
+      <h4 style="font-size: 1rem; color: var(--primary-color); font-weight: 700; margin-top: 1.8rem;">Riwayat Perjalanan Paket:</h4>
+      <div class="timeline" id="timelineContainer">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+    <!-- Alert Not Found -->
+    <div id="trackingNotFound" style="display: none; background: #fee2e2; border: 1px solid #fca5a5; color: #991b1b; padding: 1.2rem; border-radius: var(--radius-sm); margin-top: 1rem;">
+      <h4 style="font-weight: 700; font-size: 0.95rem;">Nomor Delivery Order Tidak Ditemukan!</h4>
+      <p style="font-size: 0.85rem; margin-top: 0.2rem;">Silakan periksa kembali nomor DO yang anda masukkan. Contoh yang tersedia: <strong>2023001234</strong> atau <strong>2023005678</strong>.</p>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Universitas Terbuka - SITTA (Sistem Informasi Tiras dan Transaksi Bahan Ajar)</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

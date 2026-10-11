@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SITTA UT - Informasi Stok Bahan Ajar</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="dashboard.html" class="brand-container">
+      <div class="brand-logo">UT</div>
+      <div class="brand-title">
+        <h1>SITTA UT</h1>
+        <span>Sistem Pemesanan Bahan Ajar</span>
+      </div>
+    </a>
+
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a href="stok.html" class="nav-link active">Informasi Bahan Ajar</a>
+      </li>
+      <li class="nav-item">
+        <a href="tracking.html" class="nav-link">Tracking Pengiriman</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link">Laporan &#9662;</a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item" onclick="alert('Laporan Monitoring Progress DO Bahan Ajar.')">Monitoring Progress DO Bahan Ajar</a>
+          <a href="#" class="dropdown-item" onclick="alert('Laporan Rekap Bahan Ajar.')">Rekap Bahan Ajar</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link" onclick="alert('Histori Transaksi Bahan Ajar.')">Histori Transaksi</a>
+      </li>
+    </ul>
+
+    <div class="user-badge">
+      <div class="user-avatar" id="navAvatar">U</div>
+      <span class="user-name" id="navUserName">Mahasiswa</span>
+      <button class="btn-logout" id="btnLogout">Keluar</button>
+    </div>
+  </nav>
+
+  <!-- Main Content Container -->
+  <main class="main-container">
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h3 class="card-title">Ketersediaan Stok Bahan Ajar (BMP)</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">Data stok bahan ajar terkini di gudang pusat & UPBJJ daerah.</p>
+        </div>
+        <button class="btn btn-accent" id="btnOpenAddStok">+ Tambah Stok Baru</button>
+      </div>
+
+      <!-- Filter / Pencarian -->
+      <div style="display: flex; gap: 12px; margin-bottom: 1.2rem; flex-wrap: wrap;">
+        <input type="text" id="searchStok" class="form-control" style="max-width: 320px;" placeholder="Cari nama barang / kode barang...">
+        <select id="filterJenis" class="form-control" style="max-width: 180px;">
+          <option value="">Semua Jenis</option>
+          <option value="BMP">BMP (Buku Materi Pokok)</option>
+          <option value="Modul">Modul Praktikum</option>
+        </select>
+      </div>
+
+      <!-- Tabel Stok Bahan Ajar -->
+      <div class="table-responsive">
+        <table class="custom-table" id="tableStok">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Cover</th>
+              <th>Kode Lokasi</th>
+              <th>Kode Barang</th>
+              <th>Nama Bahan Ajar</th>
+              <th>Jenis</th>
+              <th>Edisi</th>
+              <th>Jumlah Stok</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="tbodyStok">
+            <!-- Rendered by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Modal Tambah Stok Baru -->
+  <div class="modal" id="modalAddStok">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Tambah Stok Bahan Ajar Baru</h3>
+        <button class="close-btn" id="btnCloseAddStok">&times;</button>
+      </div>
+      <form id="formAddStok">
+        <div class="form-group">
+          <label class="form-label" for="addKodeLokasi">Kode Lokasi</label>
+          <input type="text" id="addKodeLokasi" class="form-control" placeholder="Contoh: 0JKT01" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="addKodeBarang">Kode Barang</label>
+          <input type="text" id="addKodeBarang" class="form-control" placeholder="Contoh: EKMA4111" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="addNamaBarang">Nama Bahan Ajar</label>
+          <input type="text" id="addNamaBarang" class="form-control" placeholder="Contoh: Pengantar Bisnis" required>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div class="form-group">
+            <label class="form-label" for="addJenisBarang">Jenis Barang</label>
+            <select id="addJenisBarang" class="form-control">
+              <option value="BMP">BMP</option>
+              <option value="Modul">Modul</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="addEdisi">Edisi</label>
+            <input type="number" id="addEdisi" class="form-control" placeholder="1" min="1" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="addStok">Jumlah Stok</label>
+          <input type="number" id="addStok" class="form-control" placeholder="100" min="0" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Simpan Stok Baru</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2025 Universitas Terbuka - SITTA (Sistem Informasi Tiras dan Transaksi Bahan Ajar)</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
